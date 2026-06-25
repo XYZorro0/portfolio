@@ -59,8 +59,8 @@
     // `contact`
     contact: {
       email: "niketgupta1@gmail.com",
-      github: "https://github.com/niketgupta", // placeholder
-      linkedin: "https://www.linkedin.com/in/niketgupta", // placeholder
+      github: "https://github.com/XYZorro0", 
+      linkedin: "https://www.linkedin.com/in/niketgupta1/", 
     },
   };
 
