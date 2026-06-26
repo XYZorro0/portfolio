@@ -1,4 +1,0 @@
-Place your resume PDF at:
-  public/resume.pdf
-
-It will be embedded inline on the portfolio and available for download.
