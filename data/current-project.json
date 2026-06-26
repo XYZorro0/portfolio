@@ -1,7 +1,7 @@
 {
-  "title": "AI-Powered Code Review Tool",
-  "description": "Building a developer tool that uses LLMs to perform semantic code reviews, detect anti-patterns, and suggest refactors with explanations. Integrates with GitHub PRs via webhooks.",
-  "techStack": ["Python", "FastAPI", "GPT-4o", "LangChain", "React", "TypeScript", "PostgreSQL", "Docker"],
+  "title": "AI-Powered Smart Mirror",
+  "description": "A smart mirror that uses MediaPipe for hand tracking and pose detection, with Kinect depth sensing for person recognition and auto-wake. I'm architecting a multi-GPU pipeline (GTX 1070 + GTX 1060) that dedicates separate cards to real-time computer vision and display rendering, with planned photo-to-3D garment conversion and weather-aware outfit recommendations running on local AI inference.",
+  "techStack": ["MediaPipe", "Computer Vision", "Python", "Kinect", "Multi-GPU", "Local AI"],
   "status": "IN PROGRESS",
   "link": "",
   "githubLink": "",

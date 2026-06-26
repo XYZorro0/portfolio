@@ -50,7 +50,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#05050f] text-[#e8eaf6]">
+      <body className="min-h-full flex flex-col bg-[#0a0a0a] text-[#f4f4f5]">
         <div className="noise-overlay" />
         {children}
       </body>

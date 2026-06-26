@@ -7,37 +7,43 @@ import { useRef } from "react";
 const skillCategories = [
   {
     label: "Languages",
-    color: "indigo",
-    skills: ["Python", "TypeScript", "JavaScript", "Java", "C++", "SQL", "HTML/CSS"],
+    color: "red",
+    skills: ["Python", "Java", "SQL", "JavaScript", "TypeScript", "HTML/CSS"],
   },
   {
     label: "Frameworks & Libraries",
-    color: "violet",
-    skills: ["React", "Next.js", "FastAPI", "Node.js", "PyTorch", "TensorFlow", "LangChain"],
+    color: "slate",
+    skills: ["TensorFlow", "PyTorch", "React", "Node.js", "Scikit-learn", "MediaPipe", "DistilBERT"],
   },
   {
     label: "AI / ML",
-    color: "sky",
-    skills: ["LLMs", "Fine-tuning", "RAG", "Computer Vision", "NLP", "Model Deployment", "NVIDIA Deep Learning"],
+    color: "rose",
+    skills: ["CNNs", "NLP", "Transformer Models", "Computer Vision", "Data Augmentation", "Model Evaluation"],
   },
   {
     label: "Cloud & DevOps",
-    color: "emerald",
-    skills: ["AWS", "Azure", "GCP", "Docker", "Git", "GitHub Actions", "Linux", "Spark"],
+    color: "zinc",
+    skills: ["AWS (EC2, S3, Lambda)", "Docker", "CI/CD", "Git", "Linux"],
   },
   {
-    label: "Databases & Data",
-    color: "amber",
-    skills: ["PostgreSQL", "BigQuery", "MongoDB", "Redis", "SQL Server"],
+    label: "Databases",
+    color: "stone",
+    skills: ["MySQL", "PostgreSQL", "DynamoDB"],
+  },
+  {
+    label: "Tools & Platforms",
+    color: "neutral",
+    skills: ["Jupyter Notebook", "VS Code", "Jira", "Agile / Scrum"],
   },
 ];
 
 const colorMap: Record<string, string> = {
-  indigo: "border-indigo-500/25 text-indigo-300 hover:border-indigo-400/50 hover:bg-indigo-500/10",
-  violet: "border-violet-500/25 text-violet-300 hover:border-violet-400/50 hover:bg-violet-500/10",
-  sky: "border-sky-500/25 text-sky-300 hover:border-sky-400/50 hover:bg-sky-500/10",
-  emerald: "border-emerald-500/25 text-emerald-300 hover:border-emerald-400/50 hover:bg-emerald-500/10",
-  amber: "border-amber-500/25 text-amber-300 hover:border-amber-400/50 hover:bg-amber-500/10",
+  red: "border-red-500/30 text-red-300 hover:border-red-400/60 hover:bg-red-500/10",
+  rose: "border-rose-500/30 text-rose-300 hover:border-rose-400/60 hover:bg-rose-500/10",
+  slate: "border-slate-400/30 text-slate-300 hover:border-slate-300/60 hover:bg-slate-400/10",
+  zinc: "border-zinc-400/30 text-zinc-300 hover:border-zinc-300/60 hover:bg-zinc-400/10",
+  stone: "border-stone-400/30 text-stone-300 hover:border-stone-300/60 hover:bg-stone-400/10",
+  neutral: "border-neutral-400/30 text-neutral-300 hover:border-neutral-300/60 hover:bg-neutral-400/10",
 };
 
 function SkillBadge({ skill, color }: { skill: string; color: string }) {
@@ -65,10 +71,10 @@ export default function About() {
       >
         {/* Section header */}
         <div className="flex items-center gap-4 mb-12">
-          <span className="text-xs font-mono text-indigo-400 tracking-widest uppercase">
+          <span className="text-xs font-mono text-red-400 tracking-widest uppercase">
             01. About
           </span>
-          <div className="flex-1 h-px bg-gradient-to-r from-indigo-500/30 to-transparent" />
+          <div className="flex-1 h-px bg-gradient-to-r from-red-500/30 to-transparent" />
         </div>
 
         <div className="grid md:grid-cols-5 gap-12 items-start">
@@ -80,21 +86,22 @@ export default function About() {
             </h2>
             <div className="space-y-3 text-gray-400 text-sm leading-relaxed">
               <p>
-                I&apos;m an AI/ML Engineer and Full-Stack Developer with a
-                background in Computer Science from the University of Houston.
-                I specialize in taking machine learning from prototype to
-                production — training models, building APIs, and shipping
-                user-facing products.
+                I&apos;m a Computer Science graduate from the University of
+                Houston focused on AI/ML engineering — building deep learning
+                systems and taking them from research to working software.
               </p>
               <p>
-                My work spans deep learning with PyTorch and TensorFlow, large
-                language model applications, and scalable cloud systems on AWS
-                and Azure. I&apos;m NVIDIA-certified in Deep Learning fundamentals.
+                My project work spans computer vision and CNNs (a dual-pipeline
+                lung cancer detector that placed 3rd at UH&apos;s HPE Data
+                Science Institute showcase), NLP and transformer models
+                (multilingual fraud detection with DistilBERT), and relational
+                data systems. I work primarily in TensorFlow, PyTorch, and
+                Python on AWS.
               </p>
               <p>
-                When I&apos;m not building, I&apos;m teaching — I&apos;ve worked as a coding
-                instructor helping the next generation of developers discover
-                the power of software.
+                I&apos;m NVIDIA-certified in Deep Learning Fundamentals. Outside
+                of coursework I teach — I worked as a coding instructor for kids
+                — and run a personal home lab for systems and AI experimentation.
               </p>
             </div>
 
@@ -103,12 +110,12 @@ export default function About() {
               {[
                 { label: "NVIDIA Certified", sub: "Deep Learning" },
                 { label: "University of Houston", sub: "B.S. Computer Science" },
-                { label: "AI/ML Focus", sub: "PyTorch · TensorFlow" },
-                { label: "Full-Stack", sub: "React · FastAPI · Cloud" },
+                { label: "AI/ML Focus", sub: "TensorFlow · PyTorch" },
+                { label: "3rd Place", sub: "UH Data Science Showcase" },
               ].map((s) => (
                 <div
                   key={s.label}
-                  className="p-3 rounded-lg border border-indigo-500/10 bg-indigo-500/5"
+                  className="p-3 rounded-lg border border-red-500/10 bg-red-500/5"
                 >
                   <div className="text-xs font-semibold text-white">{s.label}</div>
                   <div className="text-[11px] text-gray-500 mt-0.5">{s.sub}</div>

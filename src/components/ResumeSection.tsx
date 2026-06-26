@@ -17,14 +17,14 @@ export default function ResumeSection() {
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="flex items-center gap-4 mb-12">
-          <span className="text-xs font-mono text-indigo-400 tracking-widest uppercase">
+          <span className="text-xs font-mono text-red-400 tracking-widest uppercase">
             04. Resume
           </span>
-          <div className="flex-1 h-px bg-gradient-to-r from-indigo-500/30 to-transparent" />
+          <div className="flex-1 h-px bg-gradient-to-r from-red-500/30 to-transparent" />
           <a
             href="/resume.pdf"
             download
-            className="flex items-center gap-2 text-xs px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition-all duration-200 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40"
+            className="flex items-center gap-2 text-xs px-4 py-2 rounded-lg bg-red-600 hover:bg-red-500 text-white transition-all duration-200 shadow-lg shadow-red-500/20 hover:shadow-red-500/40"
           >
             <Download size={12} />
             Download PDF
@@ -32,9 +32,9 @@ export default function ResumeSection() {
         </div>
 
         {/* PDF viewer */}
-        <div className="rounded-2xl border border-indigo-500/15 overflow-hidden glow-card bg-[#0a0a1a]">
+        <div className="rounded-2xl border border-red-500/15 overflow-hidden glow-card bg-[#141414]">
           {/* Header bar */}
-          <div className="flex items-center justify-between px-5 py-3 border-b border-indigo-500/10 bg-[#07071a]">
+          <div className="flex items-center justify-between px-5 py-3 border-b border-red-500/10 bg-[#0f0f0f]">
             <div className="flex items-center gap-2 text-gray-400">
               <FileText size={14} />
               <span className="text-xs font-mono">Niket_Gupta_Resume.pdf</span>
@@ -42,7 +42,7 @@ export default function ResumeSection() {
             <a
               href="/resume.pdf"
               download
-              className="text-xs text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1"
+              className="text-xs text-red-400 hover:text-red-300 transition-colors flex items-center gap-1"
             >
               <Download size={11} />
               Save
@@ -59,8 +59,8 @@ export default function ResumeSection() {
             >
               {/* Fallback when PDF can't be embedded */}
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 text-center px-6">
-                <div className="w-16 h-16 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
-                  <FileText size={28} className="text-indigo-400" />
+                <div className="w-16 h-16 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+                  <FileText size={28} className="text-red-400" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-white mb-2">
@@ -73,7 +73,7 @@ export default function ResumeSection() {
                   <a
                     href="/resume.pdf"
                     download
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium transition-all duration-200 shadow-lg shadow-indigo-500/20"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white text-sm font-medium transition-all duration-200 shadow-lg shadow-red-500/20"
                   >
                     <Download size={15} />
                     Download Resume

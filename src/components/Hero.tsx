@@ -40,9 +40,9 @@ export default function Hero() {
             rotationX={45}
             rotationY={0}
             rotationZ={0}
-            color1="#1e1b4b"
-            color2="#0f0c29"
-            color3="#312e81"
+            color1="#ce1141"
+            color2="#0a0a0a"
+            color3="#7a0a26"
             lightType="3d"
             envPreset="lobby"
             reflection={0.3}
@@ -54,7 +54,7 @@ export default function Hero() {
           />
         </ShaderGradientCanvas>
         {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#05050f]/60 via-[#05050f]/20 to-[#05050f]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/60 via-[#0a0a0a]/20 to-[#0a0a0a]" />
       </div>
 
       {/* Content */}
@@ -64,7 +64,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-mono tracking-widest uppercase"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-red-500/30 bg-red-500/10 text-red-300 text-xs font-mono tracking-widest uppercase"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           Available for opportunities
@@ -102,13 +102,13 @@ export default function Hero() {
         >
           <a
             href="#resume"
-            className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm transition-all duration-200 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:-translate-y-0.5"
+            className="px-6 py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-medium text-sm transition-all duration-200 shadow-lg shadow-red-500/20 hover:shadow-red-500/40 hover:-translate-y-0.5"
           >
             View Resume
           </a>
           <a
             href="#projects"
-            className="px-6 py-3 rounded-xl border border-indigo-500/40 text-indigo-300 hover:bg-indigo-500/10 hover:border-indigo-400 font-medium text-sm transition-all duration-200 hover:-translate-y-0.5"
+            className="px-6 py-3 rounded-xl border border-red-500/40 text-red-300 hover:bg-red-500/10 hover:border-red-400 font-medium text-sm transition-all duration-200 hover:-translate-y-0.5"
           >
             See My Work
           </a>
@@ -128,7 +128,7 @@ export default function Hero() {
               label: "GitHub",
             },
             {
-              href: "https://linkedin.com/in/niketgupta",
+              href: "https://www.linkedin.com/in/niketgupta1/",
               icon: Link2,
               label: "LinkedIn",
             },
@@ -144,7 +144,7 @@ export default function Hero() {
               target={href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
               aria-label={label}
-              className="text-gray-500 hover:text-indigo-400 transition-colors duration-200"
+              className="text-gray-500 hover:text-red-400 transition-colors duration-200"
             >
               <Icon size={18} />
             </a>

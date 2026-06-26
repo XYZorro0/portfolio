@@ -33,7 +33,7 @@ export default function Nav() {
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a
           href="#hero"
-          className="text-sm font-mono font-semibold text-indigo-400 hover:text-indigo-300 transition-colors tracking-wider"
+          className="text-sm font-mono font-semibold text-red-400 hover:text-red-300 transition-colors tracking-wider"
         >
           NG
         </a>
@@ -47,12 +47,12 @@ export default function Nav() {
               className="text-sm text-gray-400 hover:text-white transition-colors duration-200 relative group"
             >
               {link.label}
-              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-indigo-400 group-hover:w-full transition-all duration-300" />
+              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-red-400 group-hover:w-full transition-all duration-300" />
             </a>
           ))}
           <a
             href="mailto:niketgupta1@gmail.com"
-            className="text-sm px-4 py-1.5 rounded-lg border border-indigo-500/40 text-indigo-400 hover:bg-indigo-500/10 hover:border-indigo-400 transition-all duration-200"
+            className="text-sm px-4 py-1.5 rounded-lg border border-red-500/40 text-red-400 hover:bg-red-500/10 hover:border-red-400 transition-all duration-200"
           >
             Contact
           </a>
@@ -76,7 +76,7 @@ export default function Nav() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden nav-glass border-t border-indigo-500/10"
+            className="md:hidden nav-glass border-t border-red-500/10"
           >
             <div className="px-6 py-4 flex flex-col gap-4">
               {links.map((link) => (
@@ -91,7 +91,7 @@ export default function Nav() {
               ))}
               <a
                 href="mailto:niketgupta1@gmail.com"
-                className="text-sm text-indigo-400 hover:text-indigo-300 transition-colors py-1"
+                className="text-sm text-red-400 hover:text-red-300 transition-colors py-1"
               >
                 Contact
               </a>

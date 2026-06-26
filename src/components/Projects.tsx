@@ -2,10 +2,41 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { ExternalLink, GitFork, Zap } from "lucide-react";
+import currentProject from "../../data/current-project.json";
 
-interface CurrentProject {
+const pastProjects = [
+  {
+    title: "Dual-Pipeline Lung Cancer Detection System",
+    meta: "Deep Learning · 3rd Place — UH HPE Data Science Institute Showcase",
+    description:
+      "TensorFlow CNN system that detects and classifies lung cancer across 15 distinct classes from a ~5K–15K-sample Kaggle medical imaging dataset. A dual-pipeline architecture fuses CT-scan images with clinical tabular data into a combined prediction layer, reaching ~81% validation accuracy and outperforming single-pipeline baselines.",
+    tech: ["TensorFlow", "CNN", "Python", "Computer Vision", "Data Augmentation"],
+    github: "",
+    live: "",
+  },
+  {
+    title: "Multilingual Fraud Detection Analysis",
+    meta: "Cybersecurity & NLP",
+    description:
+      "First systematic analysis of language diversity in the DIFrauD fraud dataset. Benchmarked DistilBERT, Random Forest, and LinearSVC on multilingual fraud data and built a langdetect + spaCy cross-validation framework with 99.77% agreement, using chi-square tests and machine-translated datasets for rigorous hypothesis testing.",
+    tech: ["DistilBERT", "NLP", "spaCy", "scikit-learn", "Python"],
+    github: "",
+    live: "",
+  },
+  {
+    title: "Zoo Management Database System",
+    meta: "Database Systems · COSC 3380",
+    description:
+      "Comprehensive MySQL database for zoo operations — managing staff, gift-shop inventory, and a ticket-booking system. Built on a normalized 3NF schema with efficient relational design and database triggers that automate business logic and preserve data integrity.",
+    tech: ["MySQL", "SQL", "Database Design", "3NF"],
+    github: "",
+    live: "",
+  },
+];
+
+type CurrentProject = {
   title: string;
   description: string;
   techStack: string[];
@@ -13,42 +44,7 @@ interface CurrentProject {
   link?: string;
   githubLink?: string;
   startDate: string;
-}
-
-const pastProjects = [
-  {
-    title: "Neural Style Transfer Web App",
-    description:
-      "A full-stack web application that applies artistic style transfer to images using a fine-tuned VGG-19 model. Deployed on AWS with a React frontend and FastAPI backend.",
-    tech: ["PyTorch", "FastAPI", "React", "AWS S3", "Docker"],
-    github: "",
-    live: "",
-  },
-  {
-    title: "Distributed ML Training Pipeline",
-    description:
-      "Scalable data preprocessing and training orchestration pipeline using Apache Spark and PyTorch DDP. Reduced training time by 4× on multi-node GPU clusters.",
-    tech: ["Python", "Spark", "PyTorch", "Azure ML", "MLflow"],
-    github: "",
-    live: "",
-  },
-  {
-    title: "LLM-Powered Document Q&A",
-    description:
-      "RAG-based document assistant that indexes enterprise PDFs with embeddings and answers questions with source citations. Built with LangChain, ChromaDB, and a Next.js UI.",
-    tech: ["LangChain", "ChromaDB", "OpenAI", "Next.js", "Python"],
-    github: "",
-    live: "",
-  },
-  {
-    title: "Real-Time Object Detection Dashboard",
-    description:
-      "Edge-deployed YOLO model with a live video feed dashboard. Processes 30 FPS on NVIDIA Jetson Nano with a WebSocket-based React frontend for real-time visualization.",
-    tech: ["Python", "YOLOv8", "WebSockets", "React", "TensorRT"],
-    github: "",
-    live: "",
-  },
-];
+};
 
 function CurrentProjectCard({ project }: { project: CurrentProject }) {
   const statusColor =
@@ -63,21 +59,21 @@ function CurrentProjectCard({ project }: { project: CurrentProject }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="relative rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-indigo-950/60 to-[#0a0a1a] p-6 mb-8 overflow-hidden"
+      className="relative rounded-2xl border border-red-500/30 bg-gradient-to-br from-red-950/60 to-[#141414] p-6 mb-8 overflow-hidden"
       style={{
         boxShadow:
-          "0 0 0 1px rgba(99,102,241,0.2), 0 8px 40px rgba(99,102,241,0.1), inset 0 1px 0 rgba(255,255,255,0.05)",
+          "0 0 0 1px rgba(206,17,65,0.2), 0 8px 40px rgba(206,17,65,0.1), inset 0 1px 0 rgba(255,255,255,0.05)",
       }}
     >
       {/* Ambient glow */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-500/60 to-transparent" />
-      <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-48 h-32 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/60 to-transparent" />
+      <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-48 h-32 bg-red-600/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative">
         <div className="flex flex-wrap gap-2 items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <Zap size={14} className="text-indigo-400" />
-            <span className="text-[11px] font-mono text-indigo-400 tracking-widest uppercase">
+            <Zap size={14} className="text-red-400" />
+            <span className="text-[11px] font-mono text-red-400 tracking-widest uppercase">
               What I&apos;m Currently Building
             </span>
           </div>
@@ -97,43 +93,39 @@ function CurrentProjectCard({ project }: { project: CurrentProject }) {
           {project.techStack.map((tech) => (
             <span
               key={tech}
-              className="text-xs px-2.5 py-1 rounded-lg border border-indigo-500/20 bg-indigo-500/10 text-indigo-300 font-mono"
+              className="text-xs px-2.5 py-1 rounded-lg border border-red-500/20 bg-red-500/10 text-red-300 font-mono"
             >
               {tech}
             </span>
           ))}
         </div>
 
-        <div className="flex gap-3">
-          {project.link && (
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs text-indigo-400 hover:text-indigo-300 transition-colors border border-indigo-500/30 hover:border-indigo-400/50 px-3 py-1.5 rounded-lg hover:bg-indigo-500/10"
-            >
-              <ExternalLink size={12} />
-              Live Demo
-            </a>
-          )}
-          {project.githubLink && (
-            <a
-              href={project.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors border border-gray-700 hover:border-gray-500 px-3 py-1.5 rounded-lg hover:bg-white/5"
-            >
-              <GitFork size={12} />
-              GitHub
-            </a>
-          )}
-          <a
-            href="/admin"
-            className="ml-auto text-xs text-gray-600 hover:text-gray-400 transition-colors"
-          >
-            Edit ✎
-          </a>
-        </div>
+        {(project.link || project.githubLink) && (
+          <div className="flex gap-3">
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs text-red-400 hover:text-red-300 transition-colors border border-red-500/30 hover:border-red-400/50 px-3 py-1.5 rounded-lg hover:bg-red-500/10"
+              >
+                <ExternalLink size={12} />
+                Live Demo
+              </a>
+            )}
+            {project.githubLink && (
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors border border-gray-700 hover:border-gray-500 px-3 py-1.5 rounded-lg hover:bg-white/5"
+              >
+                <GitFork size={12} />
+                GitHub
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </motion.div>
   );
@@ -153,12 +145,13 @@ function ProjectCard({
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="glow-card rounded-xl border border-indigo-500/10 bg-[#0a0a1a] p-5 flex flex-col gap-4 group transition-all duration-300 hover:border-indigo-500/25"
+      className="glow-card rounded-xl border border-red-500/10 bg-[#141414] p-5 flex flex-col gap-4 group transition-all duration-300 hover:border-red-500/25"
     >
       <div>
-        <h3 className="text-base font-semibold text-white mb-2 group-hover:text-indigo-200 transition-colors">
+        <h3 className="text-base font-semibold text-white mb-1 group-hover:text-red-200 transition-colors">
           {project.title}
         </h3>
+        <div className="text-[11px] font-mono text-red-400/80 mb-2">{project.meta}</div>
         <p className="text-sm text-gray-400 leading-relaxed">{project.description}</p>
       </div>
 
@@ -166,37 +159,39 @@ function ProjectCard({
         {project.tech.map((t) => (
           <span
             key={t}
-            className="text-[11px] px-2 py-0.5 rounded-md border border-indigo-500/15 text-indigo-400/80 font-mono bg-indigo-500/5"
+            className="text-[11px] px-2 py-0.5 rounded-md border border-red-500/15 text-red-400/80 font-mono bg-red-500/5"
           >
             {t}
           </span>
         ))}
       </div>
 
-      <div className="flex gap-3 pt-1 border-t border-white/5">
-        {project.github && (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-xs text-gray-500 hover:text-white transition-colors"
-          >
-            <GitFork size={12} />
-            Code
-          </a>
-        )}
-        {project.live && (
-          <a
-            href={project.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-xs text-gray-500 hover:text-indigo-400 transition-colors"
-          >
-            <ExternalLink size={12} />
-            Demo
-          </a>
-        )}
-      </div>
+      {(project.github || project.live) && (
+        <div className="flex gap-3 pt-1 border-t border-white/5">
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-xs text-gray-500 hover:text-white transition-colors"
+            >
+              <GitFork size={12} />
+              Code
+            </a>
+          )}
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-xs text-gray-500 hover:text-red-400 transition-colors"
+            >
+              <ExternalLink size={12} />
+              Demo
+            </a>
+          )}
+        </div>
+      )}
     </motion.div>
   );
 }
@@ -204,14 +199,6 @@ function ProjectCard({
 export default function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const [currentProject, setCurrentProject] = useState<CurrentProject | null>(null);
-
-  useEffect(() => {
-    fetch("/api/current-project")
-      .then((r) => r.json())
-      .then(setCurrentProject)
-      .catch(() => null);
-  }, []);
 
   return (
     <section id="projects" className="section max-w-6xl mx-auto px-6" ref={ref}>
@@ -221,14 +208,14 @@ export default function Projects() {
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="flex items-center gap-4 mb-12">
-          <span className="text-xs font-mono text-indigo-400 tracking-widest uppercase">
+          <span className="text-xs font-mono text-red-400 tracking-widest uppercase">
             03. Projects
           </span>
-          <div className="flex-1 h-px bg-gradient-to-r from-indigo-500/30 to-transparent" />
+          <div className="flex-1 h-px bg-gradient-to-r from-red-500/30 to-transparent" />
         </div>
 
         {/* Current project */}
-        {currentProject && <CurrentProjectCard project={currentProject} />}
+        <CurrentProjectCard project={currentProject as CurrentProject} />
 
         {/* Past projects grid */}
         <div className="grid sm:grid-cols-2 gap-4">

@@ -4,6 +4,20 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Houston Rockets palette: Red #CE1141, Black #000000, Silver #C4CED4.
+   Override Tailwind's red scale so every `red-*` utility renders Rockets red. */
+@theme {
+  --color-red-200: #ffb3c1;
+  --color-red-300: #ff7a93;
+  --color-red-400: #ef3a5d;
+  --color-red-500: #ce1141;
+  --color-red-600: #b30d38;
+  --color-red-700: #8f0a2c;
+  --color-red-800: #6b0820;
+  --color-red-900: #4a0516;
+  --color-red-950: #2b0411;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -49,38 +63,38 @@
 }
 
 :root {
-  --background: #05050f;
-  --foreground: #e8eaf6;
-  --card: #0a0a1a;
-  --card-foreground: #e8eaf6;
-  --popover: #0a0a1a;
-  --popover-foreground: #e8eaf6;
-  --primary: #6366f1;
+  --background: #0a0a0a;
+  --foreground: #f4f4f5;
+  --card: #141414;
+  --card-foreground: #f4f4f5;
+  --popover: #141414;
+  --popover-foreground: #f4f4f5;
+  --primary: #ce1141;
   --primary-foreground: #ffffff;
-  --secondary: #1e1e3a;
-  --secondary-foreground: #a5b4fc;
-  --muted: #1e1e3a;
-  --muted-foreground: #9ca3af;
-  --accent: #312e81;
-  --accent-foreground: #a5b4fc;
+  --secondary: #1c1c1c;
+  --secondary-foreground: #ff7a93;
+  --muted: #1c1c1c;
+  --muted-foreground: #a1a1aa;
+  --accent: #2b0411;
+  --accent-foreground: #ff7a93;
   --destructive: #ef4444;
-  --border: rgba(99, 102, 241, 0.15);
-  --input: rgba(99, 102, 241, 0.1);
-  --ring: #6366f1;
+  --border: rgba(206, 17, 65, 0.18);
+  --input: rgba(206, 17, 65, 0.12);
+  --ring: #ce1141;
   --radius: 0.75rem;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --sidebar: #0a0a1a;
-  --sidebar-foreground: #e8eaf6;
-  --sidebar-primary: #6366f1;
+  --sidebar: #141414;
+  --sidebar-foreground: #f4f4f5;
+  --sidebar-primary: #ce1141;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #1e1e3a;
-  --sidebar-accent-foreground: #a5b4fc;
-  --sidebar-border: rgba(99, 102, 241, 0.15);
-  --sidebar-ring: #6366f1;
+  --sidebar-accent: #1c1c1c;
+  --sidebar-accent-foreground: #ff7a93;
+  --sidebar-border: rgba(206, 17, 65, 0.18);
+  --sidebar-ring: #ce1141;
 }
 
 @layer base {
@@ -103,25 +117,25 @@
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #05050f;
+  background: #0a0a0a;
 }
 ::-webkit-scrollbar-thumb {
-  background: #312e81;
+  background: #8f0a2c;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #6366f1;
+  background: #ce1141;
 }
 
 /* Selection */
 ::selection {
-  background: rgba(99, 102, 241, 0.3);
-  color: #e8eaf6;
+  background: rgba(206, 17, 65, 0.35);
+  color: #ffffff;
 }
 
-/* Gradient text */
+/* Gradient text — Rockets red into silver */
 .gradient-text {
-  background: linear-gradient(135deg, #6366f1 0%, #a5b4fc 50%, #7dd3fc 100%);
+  background: linear-gradient(135deg, #ce1141 0%, #f5476a 45%, #c4ced4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -129,22 +143,22 @@
 
 /* Glow effects */
 .glow-card {
-  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.15),
-    0 4px 24px rgba(99, 102, 241, 0.08),
-    0 0 60px rgba(99, 102, 241, 0.03);
+  box-shadow: 0 0 0 1px rgba(206, 17, 65, 0.15),
+    0 4px 24px rgba(206, 17, 65, 0.08),
+    0 0 60px rgba(206, 17, 65, 0.03);
 }
 
 .glow-card:hover {
-  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.3),
-    0 8px 32px rgba(99, 102, 241, 0.15),
-    0 0 80px rgba(99, 102, 241, 0.06);
+  box-shadow: 0 0 0 1px rgba(206, 17, 65, 0.32),
+    0 8px 32px rgba(206, 17, 65, 0.16),
+    0 0 80px rgba(206, 17, 65, 0.07);
 }
 
 .nav-glass {
-  background: rgba(5, 5, 15, 0.85);
+  background: rgba(10, 10, 10, 0.85);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+  border-bottom: 1px solid rgba(206, 17, 65, 0.12);
 }
 
 /* Section */
