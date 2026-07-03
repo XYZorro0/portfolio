@@ -159,6 +159,30 @@ export default function Hero() {
             </a>
           ))}
         </motion.div>
+
+        {/* Metrics strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.95 }}
+          className="grid grid-cols-2 sm:grid-cols-4 gap-x-10 gap-y-6 mt-10 pt-8 border-t border-white/5"
+        >
+          {[
+            { value: "3rd Place", label: "UH Data Science Showcase" },
+            { value: "99.77%", label: "Cross-Validation Agreement" },
+            { value: "15-Class", label: "Medical Imaging CNN" },
+            { value: "NVIDIA", label: "Certified Deep Learning" },
+          ].map(({ value, label }) => (
+            <div key={label} className="flex flex-col items-center gap-1">
+              <span className="text-xl md:text-2xl font-bold text-white tracking-tight">
+                {value}
+              </span>
+              <span className="text-[10px] font-mono text-gray-500 tracking-widest uppercase text-center">
+                {label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}
@@ -166,7 +190,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
         <motion.div
           animate={{ y: [0, 6, 0] }}
