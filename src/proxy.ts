@@ -6,8 +6,14 @@ import type { NextRequest } from "next/server";
 // response headers, and hstspreload.org requires the full HSTS directive
 // set on the apex redirect itself.
 export function proxy(request: NextRequest) {
-  const host = request.headers.get("host");
-  if (host === "niketgupta.com") {
+  // Vercel's proxy layer can surface the visitor-facing host in
+  // x-forwarded-host rather than host, so check both (and ignore ports).
+  const hosts = [
+    request.headers.get("x-forwarded-host"),
+    request.headers.get("host"),
+    request.nextUrl.hostname,
+  ].map((h) => h?.split(":")[0]);
+  if (hosts.includes("niketgupta.com")) {
     const url = new URL(request.url);
     url.protocol = "https:";
     url.host = "www.niketgupta.com";
