@@ -1,6 +1,7 @@
 "use client";
 
-import { GitFork, Link2, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
+import { GitHubIcon, LinkedInIcon } from "./ui/BrandIcons";
 
 export default function Footer() {
   return (
@@ -17,10 +18,10 @@ export default function Footer() {
 
         <div className="flex items-center gap-5">
           {[
-            { href: "https://github.com/xyzorro0", icon: GitFork, label: "GitHub" },
-            { href: "https://www.linkedin.com/in/niketgupta1/", icon: Link2, label: "LinkedIn" },
-            { href: "mailto:niketgupta1@gmail.com", icon: Mail, label: "Email" },
-          ].map(({ href, icon: Icon, label }) => (
+            { href: "https://github.com/xyzorro0", icon: <GitHubIcon size={16} />, label: "GitHub" },
+            { href: "https://www.linkedin.com/in/niketgupta1/", icon: <LinkedInIcon size={16} />, label: "LinkedIn" },
+            { href: "mailto:niketgupta1@gmail.com", icon: <Mail size={16} />, label: "Email" },
+          ].map(({ href, icon, label }) => (
             <a
               key={label}
               href={href}
@@ -29,7 +30,7 @@ export default function Footer() {
               aria-label={label}
               className="text-gray-600 hover:text-red-400 transition-colors duration-200"
             >
-              <Icon size={16} />
+              {icon}
             </a>
           ))}
         </div>

@@ -105,7 +105,7 @@ export default function Experience() {
           <div className="flex-1 h-px bg-gradient-to-r from-red-500/30 to-transparent" />
         </div>
 
-        <div className="max-w-2xl">
+        <div className="max-w-3xl mx-auto">
           {experiences.map((exp, i) => (
             <ExperienceCard key={exp.company} exp={exp} index={i} isInView={isInView} />
           ))}

@@ -109,8 +109,11 @@ export default function About() {
             <div className="grid grid-cols-2 gap-4 pt-4">
               {[
                 { label: "NVIDIA Certified", sub: "Deep Learning" },
-                { label: "University of Houston", sub: "B.S. Computer Science" },
-                { label: "AI/ML Focus", sub: "TensorFlow · PyTorch" },
+                {
+                  label: "B.S. Computer Science",
+                  sub: "Univ. of Houston · Dec 2025",
+                },
+                { label: "Houston, TX", sub: "Open to opportunities" },
                 { label: "3rd Place", sub: "UH Data Science Showcase" },
               ].map((s) => (
                 <div

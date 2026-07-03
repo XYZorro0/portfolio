@@ -135,17 +135,19 @@ function ProjectCard({
   project,
   index,
   isInView,
+  className = "",
 }: {
   project: (typeof pastProjects)[0];
   index: number;
   isInView: boolean;
+  className?: string;
 }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="glow-card rounded-xl border border-red-500/10 bg-[#141414] p-5 flex flex-col gap-4 group transition-all duration-300 hover:border-red-500/25"
+      className={`glow-card rounded-xl border border-red-500/10 bg-[#141414] p-5 flex flex-col gap-4 group transition-all duration-300 hover:border-red-500/25 ${className}`}
     >
       <div>
         <h3 className="text-base font-semibold text-white mb-1 group-hover:text-red-200 transition-colors">
@@ -220,7 +222,18 @@ export default function Projects() {
         {/* Past projects grid */}
         <div className="grid sm:grid-cols-2 gap-4">
           {pastProjects.map((p, i) => (
-            <ProjectCard key={p.title} project={p} index={i} isInView={isInView} />
+            <ProjectCard
+              key={p.title}
+              project={p}
+              index={i}
+              isInView={isInView}
+              // an odd card count leaves the last row half-empty on wide screens
+              className={
+                pastProjects.length % 2 === 1 && i === pastProjects.length - 1
+                  ? "sm:col-span-2"
+                  : ""
+              }
+            />
           ))}
         </div>
       </motion.div>

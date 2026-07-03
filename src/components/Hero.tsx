@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, GitFork, Link2, Mail } from "lucide-react";
+import { ArrowDown, Mail } from "lucide-react";
 import dynamic from "next/dynamic";
+import { GitHubIcon, LinkedInIcon } from "./ui/BrandIcons";
 
 const ShaderGradientCanvas = dynamic(
   () =>
@@ -22,6 +23,14 @@ export default function Hero() {
     >
       {/* ShaderGradient background */}
       <div className="absolute inset-0 z-0">
+        {/* Static fallback so the first paint isn't a black screen while WebGL loads */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 60% at 70% 30%, rgba(206,17,65,0.35), transparent 60%), radial-gradient(ellipse 60% 50% at 20% 80%, rgba(122,10,38,0.3), transparent 65%), #0a0a0a",
+          }}
+        />
         <ShaderGradientCanvas
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
           pointerEvents="none"
@@ -124,20 +133,20 @@ export default function Hero() {
           {[
             {
               href: "https://github.com/xyzorro0",
-              icon: GitFork,
+              icon: <GitHubIcon size={18} />,
               label: "GitHub",
             },
             {
               href: "https://www.linkedin.com/in/niketgupta1/",
-              icon: Link2,
+              icon: <LinkedInIcon size={18} />,
               label: "LinkedIn",
             },
             {
               href: "mailto:niketgupta1@gmail.com",
-              icon: Mail,
+              icon: <Mail size={18} />,
               label: "Email",
             },
-          ].map(({ href, icon: Icon, label }) => (
+          ].map(({ href, icon, label }) => (
             <a
               key={label}
               href={href}
@@ -146,8 +155,32 @@ export default function Hero() {
               aria-label={label}
               className="text-gray-500 hover:text-red-400 transition-colors duration-200"
             >
-              <Icon size={18} />
+              {icon}
             </a>
+          ))}
+        </motion.div>
+
+        {/* Metrics strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.95 }}
+          className="grid grid-cols-2 sm:grid-cols-4 gap-x-10 gap-y-6 mt-10 pt-8 border-t border-white/5"
+        >
+          {[
+            { value: "3rd Place", label: "UH Data Science Showcase" },
+            { value: "99.77%", label: "Cross-Validation Agreement" },
+            { value: "15-Class", label: "Medical Imaging CNN" },
+            { value: "NVIDIA", label: "Certified Deep Learning" },
+          ].map(({ value, label }) => (
+            <div key={label} className="flex flex-col items-center gap-1">
+              <span className="text-xl md:text-2xl font-bold text-white tracking-tight">
+                {value}
+              </span>
+              <span className="text-[10px] font-mono text-gray-500 tracking-widest uppercase text-center">
+                {label}
+              </span>
+            </div>
           ))}
         </motion.div>
       </div>
@@ -157,7 +190,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
         <motion.div
           animate={{ y: [0, 6, 0] }}
