@@ -22,6 +22,8 @@ const contentSecurityPolicy = [
 
 const securityHeaders = [
   { key: "Content-Security-Policy", value: contentSecurityPolicy },
+  // Override Vercel's CDN default of "*" on static output
+  { key: "Access-Control-Allow-Origin", value: "https://www.niketgupta.com" },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
