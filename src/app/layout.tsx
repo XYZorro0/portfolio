@@ -13,6 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.niketgupta.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Niket Gupta — AI/ML Engineer & Full-Stack Developer",
   description:
     "Portfolio of Niket Gupta — AI/ML Engineer and Full-Stack Developer specializing in PyTorch, LLMs, React, and cloud-native systems.",
@@ -32,11 +36,13 @@ export const metadata: Metadata = {
     description:
       "Portfolio of Niket Gupta — AI/ML Engineer and Full-Stack Developer.",
     type: "website",
-    url: "https://niketgupta.com",
+    url: "https://www.niketgupta.com",
   },
   twitter: {
     card: "summary_large_image",
     title: "Niket Gupta — AI/ML Engineer & Full-Stack Developer",
+    description:
+      "Portfolio of Niket Gupta — AI/ML Engineer and Full-Stack Developer.",
   },
 };
 
