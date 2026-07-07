@@ -3,9 +3,14 @@ import type { NextConfig } from "next";
 // ShaderGradient's 3D light presets fetch HDR environment maps from this host.
 const SHADERGRADIENT_ASSETS = "https://ruucm.github.io";
 
+// React dev mode needs eval() for debugging features (e.g. reconstructing
+// server error stacks in the browser); neither React nor Next.js use eval
+// in production, so keep it out of the production policy.
+const isDev = process.env.NODE_ENV === "development";
+
 const contentSecurityPolicy = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   `img-src 'self' blob: data: ${SHADERGRADIENT_ASSETS}`,
   "font-src 'self'",
@@ -13,6 +18,9 @@ const contentSecurityPolicy = [
   "worker-src 'self' blob:",
   // 'self' (not 'none') so the embedded /resume.pdf <object> keeps working
   "object-src 'self'",
+  // 'self' for the /resume.pdf viewer; archive.org for the /doom emulator
+  // embed; youtube-nocookie for the /about-me video
+  "frame-src 'self' https://archive.org https://*.archive.org https://www.youtube-nocookie.com",
   "base-uri 'self'",
   "form-action 'self'",
   // 'self' (not 'none') so the site can embed its own /resume.pdf viewer

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import SideNav from "@/components/SideNav";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -58,7 +60,12 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-[#0a0a0a] text-[#f4f4f5]">
         <div className="noise-overlay" />
-        {children}
+        <SideNav />
+        {/* Offset for the fixed side rail (desktop) / top bar (mobile) */}
+        <div className="flex-1 flex flex-col pt-14 md:pt-0 md:pl-56">
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
