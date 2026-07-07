@@ -3,9 +3,14 @@ import type { NextConfig } from "next";
 // ShaderGradient's 3D light presets fetch HDR environment maps from this host.
 const SHADERGRADIENT_ASSETS = "https://ruucm.github.io";
 
+// React dev mode needs eval() for debugging features (e.g. reconstructing
+// server error stacks in the browser); neither React nor Next.js use eval
+// in production, so keep it out of the production policy.
+const isDev = process.env.NODE_ENV === "development";
+
 const contentSecurityPolicy = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   `img-src 'self' blob: data: ${SHADERGRADIENT_ASSETS}`,
   "font-src 'self'",

@@ -11,7 +11,9 @@ export default function DoomPlayer() {
   const [runKey, setRunKey] = useState(0);
 
   return (
-    <div className="space-y-4">
+    // Width is capped by viewport height so the 16:9 frame fills the screen
+    // vertically on desktop without pushing the header/controls out of view.
+    <div className="space-y-4 mx-auto w-full md:max-w-[calc((100vh_-_16rem)*16/9)]">
       <div className="rounded-2xl border border-red-500/20 overflow-hidden glow-card bg-black">
         {started ? (
           <iframe
