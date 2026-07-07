@@ -13,6 +13,9 @@ const contentSecurityPolicy = [
   "worker-src 'self' blob:",
   // 'self' (not 'none') so the embedded /resume.pdf <object> keeps working
   "object-src 'self'",
+  // 'self' for the /resume.pdf viewer; archive.org for the /doom emulator
+  // embed; youtube-nocookie for the /about-me video
+  "frame-src 'self' https://archive.org https://*.archive.org https://www.youtube-nocookie.com",
   "base-uri 'self'",
   "form-action 'self'",
   // 'self' (not 'none') so the site can embed its own /resume.pdf viewer
