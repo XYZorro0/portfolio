@@ -1,5 +1,12 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## AI Chatbot
+
+The site's chat assistant is a self-hosted RAG pipeline: an embeddable widget
+(`frontend/widget/`) talking to a local Express + Ollama backend
+(`backend/`) exposed through a Cloudflare Tunnel. Setup, ingestion, tunnel,
+and embedding instructions live in [`backend/README.md`](backend/README.md).
+
 ## Getting Started
 
 First, run the development server:
