@@ -1,0 +1,4 @@
+node_modules/
+data/vector-store.json
+test/tmp/
+.env

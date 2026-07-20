@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chat widget demo</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #0a0a0a;
+      color: #e7e7ea;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      display: grid;
+      place-items: center;
+    }
+    main { text-align: center; max-width: 480px; padding: 24px; }
+    h1 { font-size: 22px; }
+    p { color: #9a9aa2; font-size: 14px; line-height: 1.6; }
+    code {
+      background: #1f1f22;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Chat widget demo page</h1>
+    <p>
+      Stand-in for niketgupta.com. Start the backend
+      (<code>npm run dev</code> in <code>/backend</code>) and open the chat
+      bubble in the corner. To test without a GPU, run
+      <code>npm run mock:ollama</code> and point the backend's
+      <code>OLLAMA_URL</code> at it.
+    </p>
+  </main>
+
+  <script src="./chat-widget.js" defer
+          data-api-url="http://127.0.0.1:3001"
+          data-api-key="dev-key"></script>
+</body>
+</html>

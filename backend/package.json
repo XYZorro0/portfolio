@@ -1,0 +1,21 @@
+{
+  "name": "portfolio-chatbot-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RAG chatbot API for niketgupta.com — retrieves from a local vector store and answers via a locally hosted Ollama model",
+  "type": "module",
+  "engines": {
+    "node": ">=20.6"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "ingest": "node ingest/ingest.js",
+    "mock:ollama": "node test/mock-ollama.js",
+    "test": "bash test/smoke.sh"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}

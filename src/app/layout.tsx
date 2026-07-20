@@ -48,6 +48,16 @@ export const metadata: Metadata = {
   },
 };
 
+// The chat widget calls the RAG backend (backend/ in this repo). In dev it
+// talks to the locally running server; in prod, the Cloudflare Tunnel. The
+// key is deliberately public — it ships in the HTML either way and is only
+// abuse friction (see backend/README.md "Security model").
+const chatApiUrl =
+  process.env.NODE_ENV === "development"
+    ? "http://127.0.0.1:3001"
+    : "https://chat-api.niketgupta.com";
+const chatApiKey = "k3WeIfSSROi_3qXDxWesusROV1mvmFaD";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -66,6 +76,12 @@ export default function RootLayout({
           {children}
           <Footer />
         </div>
+        <script
+          src="/chat-widget.js"
+          defer
+          data-api-url={chatApiUrl}
+          data-api-key={chatApiKey}
+        />
       </body>
     </html>
   );

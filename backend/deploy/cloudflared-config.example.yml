@@ -1,0 +1,17 @@
+# Cloudflare Tunnel config for the chatbot API.
+#
+# Copy to ~/.cloudflared/config.yml and replace <TUNNEL_ID> with the ID
+# printed by `cloudflared tunnel create portfolio-chatbot`.
+#
+# Only the backend API is exposed. Ollama (port 11434) is NOT routed —
+# keep it that way.
+
+tunnel: <TUNNEL_ID>
+credentials-file: ~/.cloudflared/<TUNNEL_ID>.json
+
+ingress:
+  # Public hostname -> local backend
+  - hostname: chat-api.niketgupta.com
+    service: http://127.0.0.1:3001
+  # Everything else gets a 404 (required catch-all rule)
+  - service: http_status:404
