@@ -14,7 +14,9 @@ const contentSecurityPolicy = [
   "style-src 'self' 'unsafe-inline'",
   `img-src 'self' blob: data: ${SHADERGRADIENT_ASSETS}`,
   "font-src 'self'",
-  `connect-src 'self' blob: data: ${SHADERGRADIENT_ASSETS}`,
+  // chat-api is the chatbot backend (Cloudflare Tunnel); the 127.0.0.1:3001
+  // entry lets the widget reach the locally running backend during dev.
+  `connect-src 'self' blob: data: ${SHADERGRADIENT_ASSETS} https://chat-api.niketgupta.com${isDev ? " http://127.0.0.1:3001" : ""}`,
   "worker-src 'self' blob:",
   // 'self' (not 'none') so the embedded /resume.pdf <object> keeps working
   "object-src 'self'",
